@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:vision_talk/SplashScreen.dart';
+import 'dart:convert' as convert;
+import 'package:http/http.dart' as http;
+import 'package:vision_talk/gemini.dart';
 
 void main() {
-  runApp(const Splashscreen());
+  runApp(const Gemini());
 }
 
 class visionTalk extends StatefulWidget {
@@ -64,7 +67,10 @@ class _visionTalkState extends State<visionTalk> {
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.purple,
                           ),
-                          onPressed: () {},
+                          onPressed: () async {
+                            var url = Uri.https('www.googleapis.com',
+                                '/books/v1/volumes', {'q': '{http}'});
+                          },
                           child: Text(
                             "Generate",
                             style: TextStyle(
@@ -73,7 +79,7 @@ class _visionTalkState extends State<visionTalk> {
                                 fontWeight: FontWeight.bold),
                           ),
                         ),
-                      )
+                      ),
                     ],
                   ))
                 ],
@@ -87,5 +93,4 @@ class _visionTalkState extends State<visionTalk> {
 }
 
 
-
-// api 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
+// AIzaSyCAZAV_0xBSsQANt_vLUICBiBRh3I-xFp0
